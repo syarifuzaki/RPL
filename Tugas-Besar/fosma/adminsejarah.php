@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap Admin Theme v3</title>
+    <title>Sejarah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
@@ -11,6 +11,12 @@
     <!-- styles -->
     <link href="css/styles.css" rel="stylesheet">
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+
+    <link href="css/forms.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,31 +31,15 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Bootstrap Admin Theme</a></h1>
+	                 <h1><a href="index.html">Administrator</a></h1>
 	              </div>
 	           </div>
-	           <div class="col-md-5">
-	              <div class="row">
-	                <div class="col-lg-12">
-	                  <div class="input-group form">
-	                       <input type="text" class="form-control" placeholder="Search...">
-	                       <span class="input-group-btn">
-	                         <button class="btn btn-primary" type="button">Search</button>
-	                       </span>
-	                  </div>
-	                </div>
-	              </div>
-	           </div>
-	           <div class="col-md-2">
+	           <div class="col-md-7">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
-	                        <ul class="dropdown-menu animated fadeInUp">
-	                          <li><a href="profile.html">Profile</a></li>
-	                          <li><a href="login.html">Logout</a></li>
-	                        </ul>
+	                        <a href="index.html">Log out</a>
 	                      </li>
 	                    </ul>
 	                  </nav>
@@ -67,38 +57,62 @@
                   <!-- Main menu -->
                   <li><a href="admin.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
                   <li><a href="admingaleri.php"><i class="glyphicon glyphicon-calendar"></i> Galeri</a></li>
-                  <li class="current"><a href="adminsejarah.php"><i class="glyphicon glyphicon-stats"></i> Sejarah</a></li>
+                  <li class="current"><a href="adminsejarah.php"><i class="glyphicon glyphicon-pencil"></i> Sejarah</a></li>
                   <li><a href="admindaftar.php"><i class="glyphicon glyphicon-list"></i>Daftar Pengurus</a></li>
-                  <li><a href="adminproker.php"><i class="glyphicon glyphicon-record"></i> Proker</a></li>
-                  <li><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editor</a></li>
-                  <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
+                  <li class="submenu">
+                       <a href="#">
+                          <i class="glyphicon glyphicon-record"></i> Proker
+                          <span class="caret pull-right"></span>
+                       </a>
+                       <!-- Sub menu -->
+                       <ul>
+                          <li><a href="adminproker.php">Add Proker</a></li>
+                          <li><a href="signup.html">List Proker</a></li>
+                      </ul>
+                  </li>
                 </ul>
              </div>
-		  </div>
-		  <div class="col-md-10">
+		   </div>
+       <div class="col-md-10">
+ 	  			<div class="row">
+ 					<div class="col-md-12">
+ 						<div class="content-box-large">
+ 			  				<div class="panel-body">
+ 			  					<form class="form-horizontal" action="">
 
-        <div class="content-box-large">
-          <div class="panel-heading">
-          <div class="panel-title">Edit Sejarah FOSMA</div>
-          <br>
-          <br>
-        </div>
-          <div class="form-group">
-            <label class="col-md-2 control-label" for="text-field">Text field</label>
-            <div class="col-md-10">
-              <input class="form-control" placeholder="Default Text Field" type="text">
-            </div>
-          </div>
-          <div class="panel-body">
-            <textarea id="bootstrap-editor" placeholder="Enter text ..." style="width:98%;height:200px;"></textarea>
-          </div>
-          <div class="btn btn-primary">
-            <i class="fa fa-save"></i>
-            Submit
-          </div>
-        </div>
-		  </div>
-		</div>
+ 									<fieldset>
+ 										<legend>Edit Sejarah</legend>
+ 										<div class="form-group">
+ 											<label class="col-md-2 control-label" for="text-field">Judul Sejarah</label>
+ 											<div class="col-sm-4">
+ 												<input class="form-control" placeholder="Default Text Field" type="text">
+ 											</div>
+ 										</div>
+                    <div class="panel-body">
+                      <textarea id="bootstrap-editor" placeholder="Enter text ..." style="width:98%;height:200px;"></textarea>
+                    </div>
+ 									</fieldset>
+                  <div class="form-actions">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button class="btn btn-default" type="submit">
+                          Cancel
+                        </button>
+                        <button class="btn btn-primary" type="submit">
+                          <i class="fa fa-save"></i>
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+ 			  				</div>
+         		   </div>
+ 			  			</div>
+ 					</div>
+         </div>
+ 	  		<!--  Page content -->
+ 		  </div>
     </div>
 
     <footer>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Galeri</title>
+    <title>Form Daftar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
@@ -68,58 +68,78 @@
                        <!-- Sub menu -->
                        <ul>
                           <li><a href="adminproker.php">Add Proker</a></li>
-                          <li class="current"><a href="listproker.html">List Proker</a></li>
+                          <li><a href="signup.html">List Proker</a></li>
                       </ul>
                   </li>
                 </ul>
              </div>
 		  </div>
 		  <div class="col-md-10">
-				<div class="row">
+	  			<div class="row">
 					<div class="col-md-12">
 						<div class="content-box-large">
-              <div class="panel-body">
-                <form class="form-horizontal" action="">
+			  				<div class="panel-body">
+			  					<form class="form-horizontal" action="">
 
-                <fieldset>
-                  <legend>Add Galeri</legend>
-                  <div class="form-group">
-                    <label class="col-md-2 control-label" for="text-field">Judul Galeri</label>
-                    <div class="col-sm-4">
-                      <input class="form-control" placeholder="Default Text Field" type="text">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-2 control-label">File input</label>
-                    <div class="col-md-10">
-                      <input type="file" class="btn btn-default" id="exampleInputFile1">
-                      <p class="help-block">
-                        some help text here.
-                      </p>
-                    </div>
-                  </div>
+									<fieldset>
+										<legend>Form Pengurus</legend>
+										<div class="form-group">
+											<label class="col-md-2 control-label" for="text-field">NIM</label>
+											<div class="col-sm-4">
+												<input class="form-control" placeholder="Default Text Field" type="text">
+											</div>
+										</div>
+                    <div class="form-group">
+											<label class="col-md-2 control-label" for="text-field">Nama Pengurus</label>
+											<div class="col-sm-4">
+												<input class="form-control" placeholder="Default Text Field" type="text">
+											</div>
+										</div>
+                    <div class="form-group">
+											<label class="col-md-2 control-label" for="select-1">Fakultas</label>
+											<div class="col-sm-4">
 
-                </fieldset>
-                <div class="form-actions">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <button class="btn btn-default" type="submit">
-                        Cancel
-                      </button>
-                      <button class="btn btn-primary" type="submit">
-                        <i class="fa fa-save"></i>
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              </div>
-		  			</div>
+												<select class="form-control" id="select-1">
+													<option>FIB</option>
+													<option>FSRD</option>
+													<option>FKIP</option>
+													<option>FEB</option>
+													<option>FISIP</option>
+													<option>FMIPA</option>
+													<option>FK</option>
+													<option>FT</option>
+													<option>FP</option>
+													<option>FH</option>
+												</select>
+											</div>
+										</div>
+                    <div class="form-group">
+											<label class="col-md-2 control-label" for="text-field">Jabatan</label>
+											<div class="col-sm-4">
+												<input class="form-control" placeholder="Default Text Field" type="text">
+											</div>
+										</div>
+									</fieldset>
+
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-12">
+												<button class="btn btn-default" type="submit">
+													Cancel
+												</button>
+												<button class="btn btn-primary" type="submit">
+													<i class="fa fa-save"></i>
+													Submit
+												</button>
+											</div>
+										</div>
+									</div>
+
+								</form>
+			  				</div>
+			  			</div>
 					</div>
-				</div>
-
-
+        </div>
 	  		<!--  Page content -->
 		  </div>
 		</div>

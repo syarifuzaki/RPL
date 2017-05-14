@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Daftar Pengurus</title>
+    <title>List Galeri</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
@@ -58,7 +58,7 @@
                        <!-- Sub menu -->
                        <ul>
                           <li><a href="admingaleri.php">Add Galeri</a></li>
-                          <li><a href="listgaleri.php">List Galeri</a></li>
+                          <li class="current"><a href="listgaleri.php">List Galeri</a></li>
                       </ul>
                   </li>
                   <li><a href="adminsejarah.php"><i class="glyphicon glyphicon-pencil"></i> Sejarah</a></li>
@@ -69,7 +69,7 @@
                        </a>
                        <!-- Sub menu -->
                        <ul>
-                          <li class="current"><a href="formdaftar.php">Add Pengurus</a></li>
+                          <li><a href="formdaftar.php">Add Pengurus</a></li>
                           <li><a href="admindaftar.php">List Pengurus</a></li>
                       </ul>
                   </li>
@@ -95,44 +95,38 @@
 				</div>
   				<div class="panel-body">
   					<div class="table-responsive">
-              <legend>Daftar Pengurus</legend>
-  						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+              <legend>List Galeri</legend>
+  						<table class="table">
 			              <thead>
 			                <tr>
-			                  <th>NIM</th>
-			                  <th>Nama</th>
-			                  <th>Fakultas</th>
-                        <th>Jabatan</th>
+                        <td>Gambar</td>
+                        <td>Deskripsi</td>
                         <td>Delete</td>
                         <td>Edit</td>
 			                </tr>
 			              </thead>
                     <tbody>
-                    <?php
-                    require("Pengurus.php");
-                    $Staff = new Pengurus();
-                    $show = $Staff->showPengurus();
-                    while($data = $show->fetch(PDO::FETCH_OBJ)){
-                        echo "
-            <tr>
-            <td>$data->nim</td>
-            <td>$data->nama</td>
-            <td>$data->fakultas</td>
-            <td>$data->jabatan</td>
-            <td><a class='btn btn-danger' href='admindaftar.php?delete=$data->nim'>Delete</a></td>
-            <td><a class='btn btn-info' href='editdaftar.php?nim=$data->nim'>Edit</td>
-            </tr>";
-                    };
-                    ?>
-                  </tbody>
-            </table>
-                <a href="formdaftar.php" class="btn btn-success">Tambah Anggota Baru</a>
-            <?php
-            if(isset($_GET['delete'])){
-                $del = $Staff->deletePengurus($_GET['delete']);
+                        <?php
+// Load file koneksi.php
+include "koneksi.php";
 
-            }
-            ?>
+$query = "SELECT * FROM galeri"; // Tampilkan semua data gambar
+$sql = mysqli_query($connect, $query); // Eksekusi/Jalankan query dari variabel $query
+$row = mysqli_num_rows($sql); // Ambil jumlah data dari hasil eksekusi $sql
+
+if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
+  while($data = mysqli_fetch_array($sql)){ // Ambil semua data dari hasil eksekusi $sql
+    echo "<tr>";
+    echo "<td><img src='images/".$data['nama']."' width='200' height='auto'></td>";
+    echo "<td>".$data['deskripsi']."</td>";
+    echo "</tr>";
+  }
+}else{ // Jika data tidak ada
+  echo "<tr><td colspan='2'>Data tidak ada</td></tr>";
+}
+?>
+			              </tbody>
+			            </table>
   					</div>
   				</div>
   			</div>

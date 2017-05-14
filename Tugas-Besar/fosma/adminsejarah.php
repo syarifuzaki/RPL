@@ -31,7 +31,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Administrator</a></h1>
+	                 <h1><a href="index.php">Administrator</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-7">
@@ -39,7 +39,7 @@
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="index.html">Log out</a>
+	                        <a href="index.php">Log out</a>
 	                      </li>
 	                    </ul>
 	                  </nav>
@@ -55,10 +55,30 @@
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                   <!-- Main menu -->
-                  <li><a href="admin.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                  <li><a href="admingaleri.php"><i class="glyphicon glyphicon-calendar"></i> Galeri</a></li>
+                  <li><a href="admin.php"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                  <li class="submenu">
+                       <a href="#">
+                          <i class="glyphicon glyphicon-calendar"></i> Galeri
+                          <span class="caret pull-right"></span>
+                       </a>
+                       <!-- Sub menu -->
+                       <ul>
+                          <li><a href="admingaleri.php">Add Galeri</a></li>
+                          <li><a href="listgaleri.php">List Galeri</a></li>
+                      </ul>
+                  </li>
                   <li class="current"><a href="adminsejarah.php"><i class="glyphicon glyphicon-pencil"></i> Sejarah</a></li>
-                  <li><a href="admindaftar.php"><i class="glyphicon glyphicon-list"></i>Daftar Pengurus</a></li>
+                  <li class="submenu">
+                       <a href="#">
+                          <i class="glyphicon glyphicon-list"></i> Pengurus
+                          <span class="caret pull-right"></span>
+                       </a>
+                       <!-- Sub menu -->
+                       <ul>
+                          <li><a href="formdaftar.php">Add Pengurus</a></li>
+                          <li><a href="admindaftar.php">List Pengurus</a></li>
+                      </ul>
+                  </li>
                   <li class="submenu">
                        <a href="#">
                           <i class="glyphicon glyphicon-record"></i> Proker
@@ -67,48 +87,38 @@
                        <!-- Sub menu -->
                        <ul>
                           <li><a href="adminproker.php">Add Proker</a></li>
-                          <li><a href="signup.html">List Proker</a></li>
+                          <li><a href="listproker.php">List Proker</a></li>
                       </ul>
                   </li>
                 </ul>
              </div>
 		   </div>
        <div class="col-md-10">
- 	  			<div class="row">
- 					<div class="col-md-12">
- 						<div class="content-box-large">
- 			  				<div class="panel-body">
- 			  					<form class="form-horizontal" action="">
+         <div class="row">
+           <div class="col-md-12">
+             <div class="content-box-header">
+               <div class="panel-title">Sejarah FOSMA UNS Solo</div>
+             </div>
+             <div class="content-box-large box-with-header">
+               <?php
+               require("Sejarah.php");
+               $history = new Sejarah();
+               $show = $history->showSejarah();
+               while($data = $show->fetch(PDO::FETCH_OBJ)){
+                   echo "
+       $data->deskripsi";
+       echo "
+       <br>
+       <a class='btn btn-danger' href='listsejarah.php?delete=$data->title'>Delete</a>
+       <a class='btn btn-info' href='editsejarah.php?title=$data->title'>Edit</a>
+       ";
+               };
+               ?>
 
- 									<fieldset>
- 										<legend>Edit Sejarah</legend>
- 										<div class="form-group">
- 											<label class="col-md-2 control-label" for="text-field">Judul Sejarah</label>
- 											<div class="col-sm-4">
- 												<input class="form-control" placeholder="Default Text Field" type="text">
- 											</div>
- 										</div>
-                    <div class="panel-body">
-                      <textarea id="bootstrap-editor" placeholder="Enter text ..." style="width:98%;height:200px;"></textarea>
-                    </div>
- 									</fieldset>
-                  <div class="form-actions">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <button class="btn btn-default" type="submit">
-                          Cancel
-                        </button>
-                        <button class="btn btn-primary" type="submit">
-                          <i class="fa fa-save"></i>
-                          Submit
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
- 			  				</div>
-         		   </div>
- 			  			</div>
+             <br /><br />
+           </div>
+           </div>
+         </div>
  					</div>
          </div>
  	  		<!--  Page content -->
@@ -146,3 +156,18 @@
     <script src="js/editors.js"></script>
   </body>
 </html>
+<?php
+require('Sejarah.php');
+if(isset($_POST['addSejarah'])){
+    $title = $_POST['title'];
+    $deskripsi = $_POST['deskripsi'];
+
+
+    $history = new Sejarah();
+    $add = $history->addSejarah($title, $deskripsi);
+    if($add == "Success"){
+        header('Location: listsejarah.php');
+    }
+}
+
+?>

@@ -32,7 +32,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="admin.html">Administrator</a></h1>
+	                 <h1><a href="admin.php">Administrator</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-7">
@@ -40,7 +40,7 @@
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="index.html">My Account</a>
+	                        <a href="index.php">Log out</a>
 	                      </li>
 	                    </ul>
 	                  </nav>
@@ -56,10 +56,30 @@
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                   <!-- Main menu -->
-                  <li><a href="admin.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                  <li><a href="admingaleri.php"><i class="glyphicon glyphicon-calendar"></i> Galeri</a></li>
+                  <li><a href="admin.php"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                  <li class="submenu">
+                       <a href="#">
+                          <i class="glyphicon glyphicon-calendar"></i> Galeri
+                          <span class="caret pull-right"></span>
+                       </a>
+                       <!-- Sub menu -->
+                       <ul>
+                          <li><a href="admingaleri.php">Add Galeri</a></li>
+                          <li><a href="listgaleri.php">List Galeri</a></li>
+                      </ul>
+                  </li>
                   <li><a href="adminsejarah.php"><i class="glyphicon glyphicon-pencil"></i> Sejarah</a></li>
-                  <li><a href="admindaftar.php"><i class="glyphicon glyphicon-list"></i>Daftar Pengurus</a></li>
+                  <li class="submenu">
+                       <a href="#">
+                          <i class="glyphicon glyphicon-list"></i> Pengurus
+                          <span class="caret pull-right"></span>
+                       </a>
+                       <!-- Sub menu -->
+                       <ul>
+                          <li><a href="formdaftar.php">Add Pengurus</a></li>
+                          <li><a href="admindaftar.php">List Pengurus</a></li>
+                      </ul>
+                  </li>
                   <li class="submenu">
                        <a href="#">
                           <i class="glyphicon glyphicon-record"></i> Proker
@@ -68,7 +88,7 @@
                        <!-- Sub menu -->
                        <ul>
                           <li class="current"><a href="adminproker.php">Add Proker</a></li>
-                          <li><a href="signup.html">List Proker</a></li>
+                          <li><a href="listproker.php">List Proker</a></li>
                       </ul>
                   </li>
                 </ul>
@@ -79,21 +99,27 @@
 					<div class="col-md-12">
 						<div class="content-box-large">
 			  				<div class="panel-body">
-			  					<form class="form-horizontal" action="">
+			  					<form class="form-horizontal" action="adminproker.php"  method="POST">
 
 									<fieldset>
 										<legend>Add Proker</legend>
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Nama Proker</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text">
+												<input class="form-control" placeholder="Nama Proker" required type="text" name="nama_proker">
 											</div>
 										</div>
+                    <div class="form-group">
+  			  						<label class="col-md-2 control-label" for="text-field">Tanggal</label>
+                      <div class="col-sm-4">
+                        <div class="bfh-datepicker" data-format="y-m-d" data-date="today" name="tanggal"  required></div>
+                    </div>
+  			  					</div>
 
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="textarea">Deskripsi</label>
 											<div class="col-md-10">
-												<textarea class="form-control" placeholder="Textarea" rows="4"></textarea>
+												<textarea class="form-control" placeholder="Deskripsi" rows="4" name="deskripsi"  required></textarea>
 											</div>
 										</div>
 									</fieldset>
@@ -101,10 +127,10 @@
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-12">
-												<button class="btn btn-default" type="submit">
+												<button class="btn btn-default" type="reset">
 													Cancel
 												</button>
-												<button class="btn btn-primary" type="submit">
+												<button class="btn btn-primary" type="submit" name="addProker" value="Tambah Proker">
 													<i class="fa fa-save"></i>
 													Submit
 												</button>
@@ -163,3 +189,19 @@
     <script src="js/forms.js"></script>
   </body>
 </html>
+<?php
+require('Proker.php');
+if(isset($_POST['addProker'])){
+    $nama = $_POST['nama_proker'];
+    $tanggal = $_POST['tanggal'];
+    $deskripsi = $_POST['deskripsi'];
+
+    $Proker = new Proker();
+    $add = $Proker->addProker($nama,$tanggal, $deskripsi);
+    if($add == "Success"){
+        header('Location: listproker.php');
+    }
+
+}
+
+?>

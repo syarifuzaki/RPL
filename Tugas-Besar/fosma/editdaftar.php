@@ -1,3 +1,10 @@
+<?php
+require('Pengurus.php');
+if(isset($_GET['nim'])){
+    $Staff = new Pengurus();
+    $staff = $Staff->editPengurus($_GET['nim']);
+    $edit = $staff->fetch(PDO::FETCH_OBJ);
+    echo '
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,7 +26,7 @@
     <link href="css/forms.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -77,7 +84,7 @@
                        <!-- Sub menu -->
                        <ul>
                           <li><a href="formdaftar.php">Add Pengurus</a></li>
-                          <li class="current"><a href="admindaftar.php">List Pengurus</a></li>
+                          <li><a href="admindaftar.php">List Pengurus</a></li>
                       </ul>
                   </li>
                   <li class="submenu">
@@ -106,20 +113,20 @@
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">NIM</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text"  name="nim">
+												<input class="form-control" type="text"  name="nim" value="'.$edit->nim.'">
 											</div>
 										</div>
                     <div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Nama Pengurus</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text" name="nama">
+												<input class="form-control" type="text" name="nama" value="'.$edit->nama.'">
 											</div>
 										</div>
                     <div class="form-group">
 											<label class="col-md-2 control-label" for="select-1">Fakultas</label>
 											<div class="col-sm-4">
 
-												<select class="form-control" id="select-1" name="fakultas">
+												<select class="form-control" id="select-1" name="fakultas" value="'.$edit->fakultas.'">
                           <option value="FIB">FIB</option>
                           <option value="FSRD">FSRD</option>
                           <option value="FKIP">FKIP</option>
@@ -136,7 +143,7 @@
                     <div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Jabatan</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text" name="jabatan">
+												<input class="form-control"  type="text" name="jabatan" value="'.$edit->jabatan.'">
 											</div>
 										</div>
 									</fieldset>
@@ -144,12 +151,9 @@
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-12">
-												<button class="btn btn-default" type="reset">
-													Reset
-												</button>
-												<button class="btn btn-primary" type="submit" name="addPengurus">
+												<button class="btn btn-primary" type="submit" name="updatePengurus" value="Update">
 													<i class="fa fa-save"></i>
-													Submit
+													Update
 												</button>
 											</div>
 										</div>
@@ -169,13 +173,13 @@
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Copyright 2014 <a >Website</a>
             </div>
 
          </div>
       </footer>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -206,19 +210,17 @@
     <script src="js/forms.js"></script>
   </body>
 </html>
-<?php
-require('Pengurus.php');
-if(isset($_POST['addPengurus'])){
+';
+}
+if(isset($_POST['updatePengurus'])){
     $nim = $_POST['nim'];
     $nama = $_POST['nama'];
     $fakultas = $_POST['fakultas'];
     $jabatan = $_POST['jabatan'];
-
     $Staff = new Pengurus();
-    $add = $Staff->addPengurus($nim, $nama, $fakultas, $jabatan);
-    if($add == "Success"){
+    $upd = $Staff->updatePengurus($nim, $nama, $fakultas, $jabatan);
+    if($upd == "Success"){
         header('Location: admindaftar.php');
     }
 }
-
 ?>

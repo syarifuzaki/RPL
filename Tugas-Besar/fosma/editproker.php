@@ -1,7 +1,14 @@
+<?php
+require('Proker.php');
+if(isset($_GET['nama_proker'])){
+    $Proker = new Proker();
+    $proker = $Proker->editProker($_GET['nama_proker']);
+    $edit = $proker->fetch(PDO::FETCH_OBJ);
+    echo '
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Daftar Pengurus</title>
+    <title>Proker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery UI -->
     <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
@@ -11,8 +18,15 @@
     <!-- styles -->
     <link href="css/styles.css" rel="stylesheet">
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="vendors/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+    <link href="vendors/select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="vendors/tags/css/bootstrap-tags.css" rel="stylesheet">
+
+    <link href="css/forms.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -69,7 +83,7 @@
                        </a>
                        <!-- Sub menu -->
                        <ul>
-                          <li class="current"><a href="formdaftar.php">Add Pengurus</a></li>
+                          <li><a href="formdaftar.php">Add Pengurus</a></li>
                           <li><a href="admindaftar.php">List Pengurus</a></li>
                       </ul>
                   </li>
@@ -88,54 +102,52 @@
              </div>
 		  </div>
 		  <div class="col-md-10">
+	  			<div class="row">
+					<div class="col-md-12">
+						<div class="content-box-large">
+			  				<div class="panel-body">
+			  					<form class="form-horizontal" action="adminproker.php"  method="POST">
 
-  			<div class="content-box-large">
-  				<div class="panel-heading">
-					<div class="panel-title"></div>
-				</div>
-  				<div class="panel-body">
-  					<div class="table-responsive">
-              <legend>Daftar Pengurus</legend>
-  						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
-			              <thead>
-			                <tr>
-			                  <th>NIM</th>
-			                  <th>Nama</th>
-			                  <th>Fakultas</th>
-                        <th>Jabatan</th>
-                        <td>Delete</td>
-                        <td>Edit</td>
-			                </tr>
-			              </thead>
-                    <tbody>
-                    <?php
-                    require("Pengurus.php");
-                    $Staff = new Pengurus();
-                    $show = $Staff->showPengurus();
-                    while($data = $show->fetch(PDO::FETCH_OBJ)){
-                        echo "
-            <tr>
-            <td>$data->nim</td>
-            <td>$data->nama</td>
-            <td>$data->fakultas</td>
-            <td>$data->jabatan</td>
-            <td><a class='btn btn-danger' href='admindaftar.php?delete=$data->nim'>Delete</a></td>
-            <td><a class='btn btn-info' href='editdaftar.php?nim=$data->nim'>Edit</td>
-            </tr>";
-                    };
-                    ?>
-                  </tbody>
-            </table>
-                <a href="formdaftar.php" class="btn btn-success">Tambah Anggota Baru</a>
-            <?php
-            if(isset($_GET['delete'])){
-                $del = $Staff->deletePengurus($_GET['delete']);
+									<fieldset>
+										<legend>Edit Proker</legend>
+										<div class="form-group">
+											<label class="col-md-2 control-label" for="text-field">Nama Proker</label>
+											<div class="col-sm-4">
+												<input class="form-control" placeholder="Nama Proker" required type="text" name="nama_proker" value="'.$edit->nama_proker.'">
+											</div>
+										</div>
+                    <div class="form-group">
+  			  						<label class="col-md-2 control-label" for="text-field">Tanggal</label>
+                      <div class="col-sm-4">
+                        <div class="bfh-datepicker" data-format="y-m-d" data-date="today" name="tanggal" required value="'.$edit->tanggal.'"></div>
+                    </div>
+  			  					</div>
 
-            }
-            ?>
-  					</div>
-  				</div>
-  			</div>
+										<div class="form-group">
+											<label class="col-md-2 control-label" for="textarea">Deskripsi</label>
+											<div class="col-md-10">
+												<textarea class="form-control" placeholder="Deskripsi" rows="4" name="deskripsi" required value="'.$edit->deskripsi.'"></textarea>
+											</div>
+										</div>
+									</fieldset>
+
+									<div class="form-actions">
+										<div class="row">
+											<div class="col-md-12">
+												<button class="btn btn-primary" type="submit" name="addProker" value="Tambah Proker">
+													<i class="fa fa-save"></i>
+													Submit
+												</button>
+											</div>
+										</div>
+									</div>
+
+								</form>
+			  				</div>
+			  			</div>
+					</div>
+        </div>
+	  		<!--  Page content -->
 		  </div>
 		</div>
     </div>
@@ -144,26 +156,55 @@
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Copyright 2014 <a>Website</a>
             </div>
 
          </div>
       </footer>
 
-      <link href="vendors/datatables/dataTables.bootstrap.css" rel="stylesheet" media="screen">
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- jQuery UI -->
     <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/form-helpers/js/bootstrap-formhelpers.min.js"></script>
 
-    <script src="vendors/datatables/dataTables.bootstrap.js"></script>
+    <script src="vendors/select/bootstrap-select.min.js"></script>
+
+    <script src="vendors/tags/js/bootstrap-tags.min.js"></script>
+
+    <script src="vendors/mask/jquery.maskedinput.min.js"></script>
+
+    <script src="vendors/moment/moment.min.js"></script>
+
+    <script src="vendors/wizard/jquery.bootstrap.wizard.min.js"></script>
+
+     <!-- bootstrap-datetimepicker -->
+     <link href="vendors/bootstrap-datetimepicker/datetimepicker.css" rel="stylesheet">
+     <script src="vendors/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
     <script src="js/custom.js"></script>
-    <script src="js/tables.js"></script>
+    <script src="js/forms.js"></script>
   </body>
 </html>
+';
+}
+if(isset($_POST['updateProker'])){
+    $nama_proker = $_POST['nama_proker'];
+    $tanggal = $_POST['tanggal'];
+    $deskripsi = $_POST['deskripsi'];
+
+    $Proker = new Proker();
+    $upd = $Proker->updateProker($nama_proker, $tanggal, $deskripsi);
+    if($upd == "Success"){
+        header('Location: listproker.php');
+    }
+}
+ 
+?>

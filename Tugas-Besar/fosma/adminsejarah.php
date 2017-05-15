@@ -39,7 +39,7 @@
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="index.php">Log out</a>
+	                        <a href="logout.php">Log out</a>
 	                      </li>
 	                    </ul>
 	                  </nav>

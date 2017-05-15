@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Login</title>
@@ -34,13 +33,39 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class="login-wrapper">
 			        <div class="box">
-			            <div class="content-wrap">
-			                <h6>Sign In</h6>
-			                <p>Username</p><input class="form-control" type="text" placeholder="Username">
-			                <p>Password</p><input class="form-control" type="password" placeholder="Password">
-			                <div class="action">
-			                    <a class="btn btn-primary signup" href="admin.php">Login</a>
-			                </div>
+                        <form action="proseslogin.php" method="POST">
+			            <div class="content-wrap"><p align="left"><font size="3" face="Vani"><b>Username</b></font></p>
+                            <input    type="text"
+                                      name="username"
+                                      class="form-control"
+                                      placeholder="Username"
+                                      title="Username"
+                                      required
+                                      autofocus
+                            /><br/><p align="left"><font size="3" face="Vani"><b>Password</b></font></p>
+                            <input    type="password"
+                                      name="password"
+                                      class="form-control"
+                                      placeholder="Password"
+                                      title="Password"
+                                      required
+                            />
+
+                        </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+
+                                    <button class="btn btn-md btn-default btn-line btn-block" type="submit" name="login" title="Login"><b>SIGN IN</b></button>
+
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+                        </div>
+                        </div>
 			            </div>
 			        </div>
 			    </div>
@@ -57,3 +82,4 @@
     <script src="js/custom.js"></script>
   </body>
 </html>
+

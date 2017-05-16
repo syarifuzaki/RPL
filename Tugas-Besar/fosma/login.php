@@ -34,31 +34,30 @@
 				<div class="login-wrapper">
 			        <div class="box">
                         <form action="proseslogin.php" method="POST">
-			            <div class="content-wrap"><p align="left"><font size="3" face="Vani"><b>Username</b></font></p>
-                            <input    type="text"
-                                      name="username"
-                                      class="form-control"
-                                      placeholder="Username"
-                                      title="Username"
-                                      required
-                                      autofocus
-                            /><br/><p align="left"><font size="3" face="Vani"><b>Password</b></font></p>
-                            <input    type="password"
-                                      name="password"
-                                      class="form-control"
-                                      placeholder="Password"
-                                      title="Password"
-                                      required
-                            />
+                          <h6>Sign In</h6>
+        			            <div class="content-wrap"><p align="left"><font size="3" face="Vani"><b>Username</b></font></p>
 
-                        </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
+                                    <input    type="text"
+                                              name="username"
+                                              class="form-control"
+                                              placeholder="Username"
+                                              title="Username"
+                                              required
+                                              autofocus
+                                    /><br/><p align="left"><font size="3" face="Vani"><b>Password</b></font></p>
+                                    <input    type="password"
+                                              name="password"
+                                              class="form-control"
+                                              placeholder="Password"
+                                              title="Password"
+                                              required
+                                    />
 
-                                    <button class="btn btn-md btn-default btn-line btn-block" type="submit" name="login" title="Login"><b>SIGN IN</b></button>
-
+                                    <div class="action" type="submit">
+              			                    <button class="btn btn-md btn-default btn-line btn-block" type="submit" name="login" title="Login"><a >Login</a></button>
+              			                </div>
+                                    
                                 </div>
-                            </div>
                         </form>
 
                     </div>
@@ -82,4 +81,3 @@
     <script src="js/custom.js"></script>
   </body>
 </html>
-

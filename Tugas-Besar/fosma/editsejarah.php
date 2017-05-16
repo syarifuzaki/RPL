@@ -152,7 +152,7 @@ if(isset($_GET['title'])){
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

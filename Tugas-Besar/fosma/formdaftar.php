@@ -106,13 +106,13 @@
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">NIM</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text"  name="nim">
+												<input class="form-control" placeholder="NIM" type="text"  name="nim">
 											</div>
 										</div>
                     <div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Nama Pengurus</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text" name="nama">
+												<input class="form-control" placeholder="Nama" type="text" name="nama">
 											</div>
 										</div>
                     <div class="form-group">
@@ -136,7 +136,7 @@
                     <div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Jabatan</label>
 											<div class="col-sm-4">
-												<input class="form-control" placeholder="Default Text Field" type="text" name="jabatan">
+												<input class="form-control" placeholder="Jabatan" type="text" name="jabatan">
 											</div>
 										</div>
 									</fieldset>
@@ -169,7 +169,7 @@
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

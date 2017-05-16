@@ -42,7 +42,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php">FOSMA WEB</a>
+                <a href="index.php"><img src="img/logo.jpg" style="width:140px;height:60px;padding:10px;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,13 +52,13 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="galeri.php">Galeri</a>
+                        <a href="webgaleri.php">Galeri</a>
                     </li>
                     <li>
                         <a href="websejarah.php">Sejarah</a>
                     </li>
                     <li>
-                        <a href="daftarpengurus.php">Daftar Pengurus</a>
+                        <a href="webdaftarpengurus.php">Daftar Pengurus</a>
                     </li>
                     <li>
                         <a href="webproker.php">Proker</a>
@@ -143,7 +143,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Created by Kelompok 9</p>
                 </div>
             </div>
         </div>

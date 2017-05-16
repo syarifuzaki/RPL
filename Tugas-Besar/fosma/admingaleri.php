@@ -110,11 +110,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-md-2 control-label">File input</label>
+                    <label class="col-md-2 control-label">Input Gambar</label>
                     <div class="col-md-10">
                       <input type="file" class="btn btn-default" id="exampleInputFile1" name="galeri">
                       <p class="help-block">
-                        some help text here.
+                        tipe file harus .jpg/ .png/ .jpeg
                       </p>
                     </div>
                   </div>
@@ -123,10 +123,10 @@
                 <div class="form-actions">
                   <div class="row">
                     <div class="col-md-12">
-                      <button class="btn btn-default" type="submit">
-                        Cancel
+                      <button class="btn btn-default" type="reset">
+                        reset
                       </button>
-                      <button class="btn btn-primary" type="submit">
+                      <button class="btn btn-primary" type="submit" >
                         <i class="fa fa-save"></i>
                         Submit
                       </button>
@@ -149,7 +149,7 @@
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

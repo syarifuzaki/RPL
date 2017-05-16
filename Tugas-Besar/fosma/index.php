@@ -42,7 +42,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php">LOGO FOSMA WEB</a>
+                <a href="index.php"><img src="img/logo.jpg" style="width:140px;height:60px;padding:10px;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,13 +52,13 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="galeri.php">Galeri</a>
+                        <a href="webgaleri.php">Galeri</a>
                     </li>
                     <li>
                         <a href="websejarah.php">Sejarah</a>
                     </li>
                     <li>
-                        <a href="daftarpengurus.php">Daftar Pengurus</a>
+                        <a href="webdaftarpengurus.php">Daftar Pengurus</a>
                     </li>
                     <li>
                         <a href="webproker.php">Proker</a>
@@ -105,7 +105,7 @@
                             Sedikit tentang FOSMA UNS
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+
                 </div>
                 <p>FOSMA (Forum Silaturahmi Mahasiswa) 165 Solo adalah salah satu forum silaturahmi yang berbasis di Solo dan berpusat di UNS. Untuk lebih dikenal di lingkungan Solo, FOSMA berencana ingin membuat website yang memuat informasi-informasi mengenai FOSMA. Di dalam web tersebut, terdapat informasi mengenai sejarah, galeri, kegiatan-kegiatan,dan kepengurusan FOSMA.</p>
                 <p>Sejarah berisi awal mula, tujuan, dan visi misi FOSMA. Galeri berisi foto-foto FOSMA dalam menjalankan kegiatannya. Kegiatan (Proker) berisi kegiatan-kegiatan yang dilaksanakan FOSMA. Kepengurusan berisi nama-nama pengurus FOSMA yang sedang menjalani periodenya. </p>
@@ -127,11 +127,11 @@
                 <hr>
 
                 <!-- Pager -->
-                <ul class="pager">
+                <!--<ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
@@ -169,7 +169,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Created by Kelompok 9</p>
                 </div>
             </div>
         </div>

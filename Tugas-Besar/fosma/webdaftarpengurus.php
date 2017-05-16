@@ -9,13 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Galeri FOSMA</title>
+    <title>Daftar Pengurus FOSMA</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +43,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.php">FOSMA WEB</a>
+                <a href="index.php"><img src="img/logo.jpg" style="width:140px;height:60px;padding:10px;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,13 +53,13 @@
                       <a href="index.php">Home</a>
                   </li>
                   <li>
-                      <a href="galeri.php">Galeri</a>
+                      <a href="webgaleri.php">Galeri</a>
                   </li>
                   <li>
                       <a href="websejarah.php">Sejarah</a>
                   </li>
                   <li>
-                      <a href="daftarpengurus.php">Daftar Pengurus</a>
+                      <a href="webdaftarpengurus.php">Daftar Pengurus</a>
                   </li>
                   <li>
                       <a href="webproker.php">Proker</a>
@@ -83,7 +84,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Sejarah FOSMA UNS Solo</h1>
+                        <h1>Daftar Pengurus FOSMA UNS</h1>
                     </div>
                 </div>
             </div>
@@ -95,38 +96,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h2>Galeri Fosma</h2>
-                    <hr>
+                  <legend>Daftar Pengurus</legend>
+      						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+    			              <thead>
+    			                <tr>
+    			                  <th>NIM</th>
+    			                  <th>Nama</th>
+    			                  <th>Fakultas</th>
+                            <th>Jabatan</th>
+    			                </tr>
+    			              </thead>
+                        <tbody>
+                        <?php
+                        require("Pengurus.php");
+                        $Staff = new Pengurus();
+                        $show = $Staff->showPengurus();
+                        while($data = $show->fetch(PDO::FETCH_OBJ)){
+                            echo "
+                <tr>
+                <td>$data->nim</td>
+                <td>$data->nama</td>
+                <td>$data->fakultas</td>
+                <td>$data->jabatan</td>
+                </tr>";
+                        };
+                        ?>
+                      </tbody>
+                    </table>
+                    <?php
+                    if(isset($_GET['delete'])){
+                        $del = $Staff->deletePengurus($_GET['delete']);
 
-<table border="0" cellpadding="8" style="width:100%;">
-<?php
-// Load file koneksi.php
-include "koneksi.php";
-
-$query = "SELECT * FROM galeri"; // Tampilkan semua data gambar
-$sql = mysqli_query($connect, $query); // Eksekusi/Jalankan query dari variabel $query
-$row = mysqli_num_rows($sql); // Ambil jumlah data dari hasil eksekusi $sql
-$batas = 3;
-
-if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
-    echo "<tr>";
-    $i = 1;
-    while($data = mysqli_fetch_array($sql)){ // Ambil semua data dari hasil eksekusi $sql
-
-
-    echo "<td><p><img src='images/".$data['nama']."' width='220' height='auto'>"."<br>".$data['deskripsi']."</p></td>";
-    if($i % $batas == 0){
-        echo "</tr><tr>";
-    }
-    $i++;
-    }
-    echo "</tr>";
-}else{ // Jika data tidak ada
-  echo "<tr><td colspan='4'>Data tidak ada</td></tr>";
-}
-?>
-</table>
-
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -165,7 +167,7 @@ if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                    <p class="copyright text-muted">Created by kelompok 9</p>
                 </div>
             </div>
         </div>
@@ -183,7 +185,19 @@ if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
+    <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script src="vendors/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="js/custom.js"></script>
+    <script src="js/tables.js"></script>
 </body>
 
 </html>

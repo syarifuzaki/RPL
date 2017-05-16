@@ -119,6 +119,7 @@ if(isset($_GET['nama_proker'])){
                     <div class="form-group">
   			  						<label class="col-md-2 control-label" for="text-field">Tanggal</label>
                       <div class="col-sm-4">
+                        <input type="text" name="tanggal" required placeholder="Format: YYYY/MM/DD" value="'.$edit->tanggal.'" class="form-control"><br>
                         <div class="bfh-datepicker" data-format="y-m-d" data-date="today" name="tanggal" required value="'.$edit->tanggal.'"></div>
                     </div>
   			  					</div>
@@ -156,7 +157,7 @@ if(isset($_GET['nama_proker'])){
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

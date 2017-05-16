@@ -138,7 +138,7 @@ if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

@@ -106,7 +106,7 @@ if(isset($_GET['nim'])){
 					<div class="col-md-12">
 						<div class="content-box-large">
 			  				<div class="panel-body">
-			  					<form class="form-horizontal"  method="POST">
+			  					<form class="form-horizontal"  method="POST" action="editdaftar.php">
 
 									<fieldset>
 										<legend>Form Pengurus</legend>
@@ -173,7 +173,7 @@ if(isset($_GET['nim'])){
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a >Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

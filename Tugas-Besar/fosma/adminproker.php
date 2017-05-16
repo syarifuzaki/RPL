@@ -115,7 +115,12 @@
                         <div class="bfh-datepicker" data-format="y-m-d" data-date="today" name="tanggal"  required></div>
                     </div>
   			  					</div>
-
+                    <div class="form-group">
+											<label class="col-md-2 control-label" for="text-field">Tanggal</label>
+											<div class="col-sm-4">
+												<input type="text" name="tanggal" required type="date" placeholder="Format: YYYY/MM/DD" class="form-control">
+											</div>
+										</div>
 										<div class="form-group">
 											<label class="col-md-2 control-label" for="textarea">Deskripsi</label>
 											<div class="col-md-10">
@@ -128,7 +133,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<button class="btn btn-default" type="reset">
-													Cancel
+													Reset
 												</button>
 												<button class="btn btn-primary" type="submit" name="addProker" value="Tambah Proker">
 													<i class="fa fa-save"></i>
@@ -152,7 +157,7 @@
          <div class="container">
 
             <div class="copy text-center">
-               Copyright 2014 <a href='#'>Website</a>
+               Created by Kelompok 9
             </div>
 
          </div>

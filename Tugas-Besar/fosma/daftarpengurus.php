@@ -9,13 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact Us</title>
+    <title>Daftar Pengurus FOSMA</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,7 +43,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a href="index.php"><img src="img/logo.jpg" style="width:140px;height:60px;padding:10px;"></a>
+                <a class="navbar-brand" href="index.php">FOSMA WEB</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,13 +53,13 @@
                       <a href="index.php">Home</a>
                   </li>
                   <li>
-                      <a href="webgaleri.php">Galeri</a>
+                      <a href="galeri.php">Galeri</a>
                   </li>
                   <li>
                       <a href="websejarah.php">Sejarah</a>
                   </li>
                   <li>
-                      <a href="webdaftarpengurus.php">Daftar Pengurus</a>
+                      <a href="daftarpengurus.php">Daftar Pengurus</a>
                   </li>
                   <li>
                       <a href="webproker.php">Proker</a>
@@ -78,47 +79,60 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/contact-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Contact Us</h1>
-                        <hr class="small">
-                        <span class="subheading">Punya pertanyaan? Kami memiliki jawabannya (mungkin).</span>
+                    <div class="post-heading">
+                        <h1>Daftar Pengurus FOSMA</h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Ingin berkontak-kontak dengan kami? Kunjungi Media Sosial kami untuk berbicara lebih lanjut</p>
-                <table style="width:100%;text-align:center;">
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <legend>Daftar Pengurus</legend>
+      						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+    			              <thead>
+    			                <tr>
+    			                  <th>NIM</th>
+    			                  <th>Nama</th>
+    			                  <th>Fakultas</th>
+                            <th>Jabatan</th>
+    			                </tr>
+    			              </thead>
+                        <tbody>
+                        <?php
+                        require("Pengurus.php");
+                        $Staff = new Pengurus();
+                        $show = $Staff->showPengurus();
+                        while($data = $show->fetch(PDO::FETCH_OBJ)){
+                            echo "
+                <tr>
+                <td>$data->nim</td>
+                <td>$data->nama</td>
+                <td>$data->fakultas</td>
+                <td>$data->jabatan</td>
+                </tr>";
+                        };
+                        ?>
+                      </tbody>
+                    </table>
+                    <?php
+                    if(isset($_GET['delete'])){
+                        $del = $Staff->deletePengurus($_GET['delete']);
 
-			<tr>
-				<td>
-
-					<a href="https://www.facebook.com/fosma165solo/" target="_blank">
-						<img src="images/fb.png" alt="Fosma 165 Solo" style="width:100px;height:100px;">
-					</a>
-					<p>Facebook Page <br> Fosma 165 Solo</p>
-				</td>
-				<td>
-					<a href="https://twitter.com/fosmasolo" target="_blank">
-						<img src="images/twitter.png" alt="Fosma 165 Solo" style="width:100px;height:100px;">
-					</a>
-					<p>Twitter <br> @FosmaSolo</p>
-				</td>
-			</tr>
-
-		</table>
+                    }
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
 
     <hr>
 
@@ -171,7 +185,19 @@
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
+    <script src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+
+    <script src="vendors/datatables/dataTables.bootstrap.js"></script>
+
+    <script src="js/custom.js"></script>
+    <script src="js/tables.js"></script>
 </body>
 
 </html>

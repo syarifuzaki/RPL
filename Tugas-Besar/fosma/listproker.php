@@ -117,7 +117,7 @@
               <td>$data->nama_proker</td>
               <td>$data->tanggal</td>
               <td>$data->deskripsi</td>
-              <td><a class='btn btn-danger' href='listproker.php?delete=$data->nama_proker'>Delete</a></td>
+              <td><a class='btn btn-danger' href='listproker.php?delete=$data->nama_proker' onclick='return confirm(\"Apakah anda yakin ingin menghapus?\")'>Delete</a></td>
               <td><a class='btn btn-info' href='editproker.php?nama_proker=$data->nama_proker'>Edit</td>
               </tr>";
                       };

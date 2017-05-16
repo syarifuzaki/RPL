@@ -119,7 +119,7 @@
             <td>$data->nama</td>
             <td>$data->fakultas</td>
             <td>$data->jabatan</td>
-            <td><a class='btn btn-danger' href='admindaftar.php?delete=$data->nim'>Delete</a></td>
+            <td><a class='btn btn-danger' href='admindaftar.php?delete=$data->nim' onclick='return confirm(\"Apakah anda yakin ingin menghapus?\")'>Delete</a></td>
             <td><a class='btn btn-info' href='editdaftar.php?nim=$data->nim'>Edit</td>
             </tr>";
                     };

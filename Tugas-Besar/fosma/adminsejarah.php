@@ -109,7 +109,7 @@
        $data->deskripsi";
        echo "
        <br>
-       <a class='btn btn-danger' href='listsejarah.php?delete=$data->title'>Delete</a>
+       <a class='btn btn-danger' href='listsejarah.php?delete=$data->title' onclick='return confirm(\"Apakah anda yakin ingin menghapus?\")'>Delete</a>
        <a class='btn btn-info' href='editsejarah.php?title=$data->title'>Edit</a>
        ";
                };

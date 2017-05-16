@@ -11,17 +11,17 @@ $tmp_file = $_FILES['galeri']['tmp_name'];
 // Set path folder tempat menyimpan gambarnya
 $path = "images/".$nama_file;
 
-if($tipe_file == "image/jpeg" || $tipe_file == "image/png"){ // Cek apakah tipe file yang diupload adalah JPG / JPEG / PNG
+if($tipe_file == "image/jpeg" || $tipe_file == "image/png" || $tipe_file == "image/jpg"){ // Cek apakah tipe file yang diupload adalah JPG / JPEG / PNG
   // Jika tipe file yang diupload JPG / JPEG / PNG, lakukan :
-  if($ukuran_file <= 10000000){ // Cek apakah ukuran file yang diupload kurang dari sama dengan 1MB
+  if($ukuran_file <= 50000000){ // Cek apakah ukuran file yang diupload kurang dari sama dengan 1MB
     // Jika ukuran file kurang dari sama dengan 1MB, lakukan :
     // Proses upload
     if(move_uploaded_file($tmp_file, $path)){ // Cek apakah gambar berhasil diupload atau tidak
-      // Jika gambar berhasil diupload, Lakukan :	
+      // Jika gambar berhasil diupload, Lakukan :
       // Proses simpan ke Database
       $query = "INSERT INTO galeri(nama,ukuran,tipe,deskripsi) VALUES('".$nama_file."','".$ukuran_file."','".$tipe_file."','".$_POST['deskripsi']."')";
       $sql = mysqli_query($connect, $query); // Eksekusi/ Jalankan query dari variabel $query
-      
+
       if($sql){ // Cek jika proses simpan ke database sukses atau tidak
         // Jika Sukses, Lakukan :
         header("location: listgaleri.php"); // Redirectke halaman index.php

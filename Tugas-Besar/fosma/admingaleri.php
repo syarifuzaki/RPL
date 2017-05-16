@@ -126,7 +126,7 @@
                       <button class="btn btn-default" type="reset">
                         reset
                       </button>
-                      <button class="btn btn-primary" type="submit" >
+                      <button class="btn btn-primary" type="submit" value="Upload">
                         <i class="fa fa-save"></i>
                         Submit
                       </button>

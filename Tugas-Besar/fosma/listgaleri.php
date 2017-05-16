@@ -87,6 +87,20 @@
                 </ul>
              </div>
 		  </div>
+
+      <?php
+	if(isset($_GET['pesan'])){
+		$pesan = $_GET['pesan'];
+		if($pesan == "input"){
+			echo "Data berhasil di input.";
+		}else if($pesan == "update"){
+			echo "Data berhasil di update.";
+		}else if($pesan == "hapus"){
+			echo "Data berhasil di hapus.";
+		}
+	}
+	?>
+
 		  <div class="col-md-10">
 
   			<div class="content-box-large">
@@ -119,12 +133,20 @@ if($row > 0){ // Jika jumlah data lebih dari 0 (Berarti jika data ada)
     echo "<tr>";
     echo "<td><img src='images/".$data['nama']."' width='200' height='auto'></td>";
     echo "<td>".$data['deskripsi']."</td>";
-    echo "</tr>";
+	?>
+	<td><a class="btn btn-danger" class="hapus" onclick='return confirm(\"Apakah anda yakin ingin menghapus?\")' href="hapus.php?id=<?php echo $data['id']; ?>" >Delete</a></td>
+	<td><a class="btn btn-info" class="edit" href="editgaleri.php?id=<?php echo $data['id']; ?>" >Edit</a></td>
+<?php
+	echo "</tr>";
   }
 }else{ // Jika data tidak ada
   echo "<tr><td colspan='2'>Data tidak ada</td></tr>";
 }
 ?>
+
+
+
+
 			              </tbody>
 			            </table>
   					</div>

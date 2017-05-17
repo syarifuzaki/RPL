@@ -21,7 +21,7 @@ class Proker{
         return $query;
     }
     public function updateProker($nama_proker, $tanggal, $deskripsi){
-        $sql = "UPDATE proker SET nama_proker='$nama_proker', tanggal='$tanggal', deskripsi='$deskripsi'";
+        $sql = "UPDATE proker SET nama_proker='$nama_proker', tanggal='$tanggal', deskripsi='$deskripsi' WHERE nama_proker ='$nama_proker'";
         $query = $this->db->query($sql);
         if(!$query){
             return "Failed";

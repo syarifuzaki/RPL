@@ -110,12 +110,6 @@
 											</div>
 										</div>
                     <div class="form-group">
-  			  						<label class="col-md-2 control-label" for="text-field">Tanggal</label>
-                      <div class="col-sm-4">
-                        <div class="bfh-datepicker" data-format="y-m-d" data-date="today" name="tanggal"  required></div>
-                    </div>
-  			  					</div>
-                    <div class="form-group">
 											<label class="col-md-2 control-label" for="text-field">Tanggal</label>
 											<div class="col-sm-4">
 												<input type="text" name="tanggal" required type="date" placeholder="Format: YYYY/MM/DD" class="form-control">

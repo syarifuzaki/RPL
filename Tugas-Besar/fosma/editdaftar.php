@@ -150,7 +150,9 @@ if(isset($_GET['nim'])){
 
 									<div class="form-actions">
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-12"><button class="btn btn-default" type="submit">
+                        <a href="admindaftar.php">Cancel</a>
+                      </button>
 												<button class="btn btn-primary" type="submit" name="updatePengurus" value="Update">
 													<i class="fa fa-save"></i>
 													Update

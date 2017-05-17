@@ -1,8 +1,8 @@
 <?php
 require('Proker.php');
 if(isset($_GET['nama_proker'])){
-    $Prokerr = new Proker();
-    $proker = $Prokerr->editProker($_GET['nama_proker']);
+    $Proker = new Proker();
+    $proker = $Proker->editProker($_GET['nama_proker']);
     $edit = $proker->fetch(PDO::FETCH_OBJ);
     echo '
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ if(isset($_GET['nama_proker'])){
 					<div class="col-md-12">
 						<div class="content-box-large">
 			  				<div class="panel-body">
-			  					<form class="form-horizontal"   method="POST" action="editproker.php">
+			  					<form class="form-horizontal" action="editproker.php"  method="POST">
 
 									<fieldset>
 										<legend>Edit Proker</legend>
@@ -120,7 +120,6 @@ if(isset($_GET['nama_proker'])){
   			  						<label class="col-md-2 control-label" for="text-field">Tanggal</label>
                       <div class="col-sm-4">
                         <input type="text" name="tanggal" required placeholder="Format: YYYY/MM/DD" value="'.$edit->tanggal.'" class="form-control"><br>
-
                     </div>
   			  					</div>
 
@@ -135,9 +134,12 @@ if(isset($_GET['nama_proker'])){
 									<div class="form-actions">
 										<div class="row">
 											<div class="col-md-12">
-												<button class="btn btn-primary" type="submit" name="updateProker" value="Update">
+                      <button class="btn btn-default" type="submit">
+                        <a href="listproker.php">Cancel</a>
+                      </button>
+												<button class="btn btn-primary" type="submit" name="updateProker" value="Update ">
 													<i class="fa fa-save"></i>
-													Update
+													Submit
 												</button>
 											</div>
 										</div>
@@ -157,7 +159,7 @@ if(isset($_GET['nama_proker'])){
          <div class="container">
 
             <div class="copy text-center">
-               Created by Kelompok 9
+               Copyright 2014 <a>Website</a>
             </div>
 
          </div>
@@ -195,14 +197,17 @@ if(isset($_GET['nama_proker'])){
   </body>
 </html>
 ';
+
 }
+?>
+<?php
 if(isset($_POST['updateProker'])){
     $nama_proker = $_POST['nama_proker'];
     $tanggal = $_POST['tanggal'];
     $deskripsi = $_POST['deskripsi'];
 
-    $Prokerr = new Proker();
-    $upd = $Prokerr->updateProker($nama_proker, $tanggal, $deskripsi);
+    $Proker = new Proker();
+    $upd = $Proker->updateProker($nama_proker, $tanggal, $deskripsi);
     if($upd == "Success"){
         header('Location: listproker.php');
     }

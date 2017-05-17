@@ -112,7 +112,7 @@
                 <form class="form-horizontal" action="edit.php" method="post" enctype="multipart/form-data">
 
                 <fieldset>
-                  <legend>Add Galeri</legend>
+                  <legend>Edit Galeri</legend>
                   <input class="form-control"  type="hidden" name="id" value="<?php echo $data['id'] ?>">
                   <div class="form-group">
                     <label class="col-md-2 control-label" for="text-field">Judul Galeri</label>
@@ -134,8 +134,8 @@
                 <div class="form-actions">
                   <div class="row">
                     <div class="col-md-12">
-                      <button class="btn btn-default" type="reset">
-                        reset
+                      <button class="btn btn-default" type="submit">
+                        <a href="listgaleri.php">Cancel</a>
                       </button>
                       <button class="btn btn-primary" type="submit" value="update">
                         <i class="fa fa-save"></i>

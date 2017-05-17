@@ -128,8 +128,8 @@ if(isset($_GET['title'])){
                   <div class="form-actions">
                     <div class="row">
                       <div class="col-md-12">
-                        <button class="btn btn-default" type="reset">
-                          Cancel
+                        <button class="btn btn-default" type="submit" >
+                          <a href="adminsejarah.php">Cancel</a>
                         </button>
                         <button class="btn btn-primary" type="submit" name="updateSejarah" value="Update" >
                           <i class="fa fa-save"></i>

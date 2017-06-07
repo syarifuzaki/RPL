@@ -19,7 +19,8 @@ class Sejarah{
         return $query;
     }
     public function updateSejarah($title, $deskripsi){
-        $sql = "UPDATE sejarah SET title='$title', deskripsi = '$deskripsi' where title = '$title'";
+        $sql = "UPDATE sejarah SET title='$title', 
+		deskripsi = '$deskripsi' where title = '$title'";
         $query = $this->db->query($sql);
         if(!$query){
             return "Failed";
